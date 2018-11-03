@@ -1,4 +1,4 @@
-var cartoons = ["Adventure Time", "Archer", "Futurama", "X-Men"];
+var cartoons = ["Adventure Time", "Archer", "Futurama", "X-Men", "Dragon Ball"];
 
 function displayCartoonInfo(){
     $("#cartoon-view").empty();
@@ -20,7 +20,9 @@ function displayCartoonInfo(){
         for (var i = 0; i < results.length; i++){
             var cartoonDiv=$("<div>");
 
-            var p = $("<p>").text("Rating: " + results[i].rating);
+            cartoonDiv.addClass("card");
+            
+            var p = $("<span>").text("Rating: " + results[i].rating);
 
             var cartoonImage = $("<img>");
 
@@ -28,12 +30,14 @@ function displayCartoonInfo(){
             cartoonImage.attr("still_src", results[i].images.fixed_height_still.url);
             cartoonImage.attr("animated_src", results[i].images.fixed_height.url);
 
+            cartoonImage.addClass("card-img-top");
+            p.addClass("card-text");
 
             cartoonImage.addClass("gif");
             cartoonImage.attr("data-state", "still");
             
-            cartoonDiv.append(p);
             cartoonDiv.append(cartoonImage);
+            cartoonDiv.append(p);
 
             $("#cartoon-view").prepend(cartoonDiv);
         }
@@ -44,9 +48,10 @@ function renderButtons(){
   $("#buttons-view").empty();
   
   for (var i=0; i < cartoons.length; i++){
-      var a = $("<button>");
+      var a = $("<button>" + " ");
 
       a.addClass("cartoon-btn");
+      a.addClass("btn btn-info");
 
       a.attr("data-name", cartoons[i]);
 
@@ -79,7 +84,7 @@ $("#add-cartoon").on("click", function(){
     var cartoon=$("#cartoon-input").val().trim();
      
     cartoons.push(cartoon);
-
+    
     renderButtons();
 });
 

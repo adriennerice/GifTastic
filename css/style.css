@@ -1,0 +1,27 @@
+html, body {
+    margin: 25px;
+}
+
+.container {
+    width: 50%;
+    margin: 0 auto;
+}
+
+h1 {
+    text-align: center;
+}
+.cartoon-btn {
+    margin-right: 20px;    
+}
+
+.card {
+    height: 250px;
+    width: 375px;
+    float: left;
+    margin: 40px;  
+}
+
+.gif {
+    height: 200px;
+    width: 356px;
+}
